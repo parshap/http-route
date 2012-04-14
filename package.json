@@ -18,5 +18,9 @@
     "router"
   ],
   "author": "Parsha Pourkhomami",
-  "license": "Public Domain"
+  "license": "Public Domain",
+  "dependencies": {
+    "connect": "~2.8.0",
+    "underscore": "~1.4.4"
+  }
 }
