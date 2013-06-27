@@ -1,0 +1,6 @@
+{
+	"es5": true,
+	"node": true,
+	"globalstrict": true,
+	"trailing": true
+}
