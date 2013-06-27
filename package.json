@@ -4,7 +4,7 @@
   "description": "HTTP request routing using a nestable functional style",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,9 @@
   "dependencies": {
     "connect": "~2.8.0",
     "underscore": "~1.4.4"
+  },
+  "devDependencies": {
+    "tape": "~1.0.4",
+    "concat-stream": "~1.0.0"
   }
 }
