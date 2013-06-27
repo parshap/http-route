@@ -1,0 +1,22 @@
+{
+  "name": "http-route",
+  "version": "0.0.0",
+  "description": "HTTP request routing using a nestable functional style",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/parshap/http-route"
+  },
+  "keywords": [
+    "http",
+    "route",
+    "connect",
+    "request",
+    "router"
+  ],
+  "author": "Parsha Pourkhomami",
+  "license": "Public Domain"
+}
