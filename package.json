@@ -1,6 +1,6 @@
 {
   "name": "http-route",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "HTTP request routing using a nestable functional style",
   "main": "index.js",
   "scripts": {
