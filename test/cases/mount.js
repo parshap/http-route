@@ -1,9 +1,9 @@
 "use strict";
 
-var http = require("http"),
-	test = require("tape"),
+var test = require("tape"),
 	_ = require("underscore"),
-	route = require("../");
+	route = require("../../"),
+	createServer = require("../server");
 
 test("mounted route matches only correct url", function(t) {
 	var handle = route("/foo", function(req, res) {
@@ -87,16 +87,3 @@ test("mounted route returns url back", function(t) {
 		server.close();
 	}
 });
-
-function createServer(handler, callback) {
-	var server = http.createServer(handler);
-	server.listen(0, function() {
-		callback(function(opts, cb) {
-			return http.request(_.extend(opts, {
-				address: "localhost",
-				port: server.address().port,
-			}), cb);
-		});
-	});
-	return server;
-}
