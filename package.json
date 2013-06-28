@@ -4,7 +4,7 @@
   "description": "HTTP request routing using a nestable functional style",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test"
   },
   "repository": {
     "type": "git",

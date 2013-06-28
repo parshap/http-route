@@ -2,7 +2,7 @@
 
 var test = require("tape"),
 	http = require("http"),
-	route = require("./"),
+	route = require("../"),
 	concat = require("concat-stream");
 
 var HTTP_METHODS = [
