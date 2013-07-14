@@ -15,7 +15,10 @@ module.exports = function createRoute(condition, app) {
 		var state = conditionFn(req),
 			isMatch = !! state;
 
-		next = next || send404.bind(null, req, res);
+		// If there's no other handlers, use a 404 response
+		if ( ! next) {
+			next = send404.bind(null, req, res);
+		}
 
 		if ( ! isMatch) {
 			return next();
