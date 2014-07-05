@@ -1,7 +1,7 @@
 {
   "name": "http-route",
   "version": "0.3.3",
-  "description": "HTTP request routing using a nestable functional style",
+  "description": "HTTP routing with a nestable functional style",
   "main": "index.js",
   "scripts": {
     "test": "node test"
