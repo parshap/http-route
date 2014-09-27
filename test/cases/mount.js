@@ -34,8 +34,36 @@ test("mounted route adjusts url", function(t) {
 	var handle = route("/foo", function(req, res) {
 		t.equals(req.url, "/bar");
 		t.equals(req.originalUrl, "/foo/bar");
+		t.equals(req.baseUrl, "/foo");
 		res.end();
 	});
+
+	var server = createServer(handle, function(request) {
+		var req = request({
+			method: "DELETE",
+			path: "/foo/bar",
+		});
+		req.end();
+		req.on("response", function(res) {
+			t.equals(res.statusCode, 200);
+			res.resume(); // force stream to flow
+			res.once("end", end);
+		});
+	});
+
+	function end() {
+		t.end();
+		server.close();
+	}
+});
+
+test("double mounted route adjusts url", function(t) {
+	var handle = route("/foo", route("/bar", function(req, res) {
+		t.equals(req.url, "/");
+		t.equals(req.originalUrl, "/foo/bar");
+		t.equals(req.baseUrl, "/foo/bar");
+		res.end();
+	}));
 
 	var server = createServer(handle, function(request) {
 		var req = request({
@@ -63,6 +91,7 @@ test("mounted route returns url back", function(t) {
 		.use(route("/foo", function(req, res, next) {
 			t.equals(req.url, "/bar");
 			t.equals(req.originalUrl, "/foo/bar");
+			t.equals(req.baseUrl, "/foo");
 			next();
 		}))
 		.use(function(req, res, next) {
